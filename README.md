@@ -1,164 +1,97 @@
-# 💻 Madhumitha | Developer Portfolio
+# Developer Portfolio
 
-A modern, responsive personal portfolio website built using HTML, CSS, and JavaScript. This portfolio showcases my technical skills, projects, educational background, resume, and contact information.
+A responsive personal portfolio built with plain HTML, CSS and JavaScript (no frameworks, no build step). It has a dark/light theme, project modals, a validated contact form and a resume download area.
 
-Developed as part of a **Full Stack Web Development Internship Task**.
+> Everything is a template: personal links, resume and project URLs are placeholders until you fill them in. Nothing here is deployed yet.
 
-## 🌟 About the Project
+## Features
+- Fixed navbar, smooth scrolling, active-link highlight, mobile hamburger menu
+- Dark theme by default, light theme option saved in `localStorage`
+- Hero, About, Skills, Projects, Education, Achievements (hidden until filled), Resume, Contact
+- Project cards with detail modals; missing links show "Coming Soon"
+- Contact form with validation and honest status messages
+- Scroll reveal animations, back-to-top button, reduced-motion support
+- All personal data lives in `js/config.js` and `js/projects.js`
 
-This portfolio website introduces me as an aspiring software developer and provides a place to showcase my technical knowledge, projects, and learning journey.
+## Technologies
+HTML5, CSS3 (Flexbox, Grid), JavaScript ES6+, Google Fonts (Inter, Sora), Font Awesome icons (CDN).
 
-The website features a clean design, interactive elements, responsive layouts, and dark/light themes to provide a smooth user experience across different devices.
-
-## ✨ Features
-
-* 🎨 Modern and professional user interface
-* 📱 Responsive design for mobile, tablet, and desktop
-* 🌙 Dark and light theme toggle
-* 👩‍💻 Personal introduction and About Me section
-* 🛠️ Technical skills showcase
-* 🚀 Featured projects with project details
-* 🎓 Education section
-* 📄 Resume viewing and downloading
-* 📬 Contact form with input validation
-* 🔗 GitHub and LinkedIn profile links
-* 📌 Smooth scrolling and interactive navigation
-* ⬆️ Back-to-top button
-* ⚡ Smooth animations and hover effects
-
-## 🛠️ Technologies Used
-
-* **HTML5** – Website structure
-* **CSS3** – Styling, animations, and responsive layouts
-* **JavaScript** – Interactive features and dynamic content
-* **Font Awesome** – Icons
-* **Google Fonts** – Typography
-* **Git & GitHub** – Version control and source code hosting
-* **GitHub Pages** – Website deployment
-
-## 📂 Project Structure
-
-```text
+## Folder structure
+```
 developer-portfolio/
-│
 ├── index.html
-├── css/
-│   └── style.css
+├── css/style.css
 ├── js/
-│   ├── config.js
-│   ├── projects.js
-│   └── main.js
+│   ├── main.js        (rendering and interactions)
+│   ├── projects.js    (your projects)
+│   └── config.js      (your personal details)
 ├── assets/
-│   ├── myphoto.jpg
-│   └── resume.pdf
+│   ├── images/
+│   │   ├── profile-placeholder.png
+│   │   └── projects/
+│   └── resume.pdf     (you add this)
 ├── README.md
 └── .gitignore
 ```
 
-## 🚀 Getting Started
+## Run locally
+1. Install VS Code and the **Live Server** extension.
+2. Open the `developer-portfolio` folder in VS Code.
+3. Right-click `index.html` and choose **Open with Live Server** (or just double-click `index.html`).
 
-Follow these steps to run the project locally.
+Internet is needed for Google Fonts and Font Awesome icons.
 
-### 1. Clone the Repository
+## Customize your details
+Open `js/config.js` and edit:
+- `name`, `role`, `headline`, `intro`
+- `links.email`, `links.github`, `links.linkedin` (leave `""` until you have them)
+- `about`, `skills`, `education` (fill in your degree and graduation year)
+- `achievements`: add only real, verified items. The section appears once the list is not empty.
 
-```bash
-git clone https://github.com/YOUR-USERNAME/developer-portfolio.git
+Profile photo: save a square image as `assets/images/profile-placeholder.png` (or change `profileImage`).
+
+## Add or edit projects
+Open `js/projects.js`. Copy one object, change its fields and save. Set `demoUrl` and `repoUrl` to real URLs when they exist; empty values show "Coming Soon". For a project image, put a file in `assets/images/projects/` and set `image: "assets/images/projects/name.png"`. To remove a project, delete its object.
+
+## Add your resume
+1. Save your PDF as `assets/resume.pdf`.
+2. In `js/config.js` set `resume: { path: "assets/resume.pdf", available: true }`.
+
+## Make the contact form really send
+The form validates input but sends nothing until you connect a service:
+1. Create a free form at [formspree.io](https://formspree.io) and copy its endpoint URL.
+2. Paste it into `formEndpoint` in `js/config.js`.
+(Netlify Forms or EmailJS also work, but need small code changes.)
+
+## Put it on GitHub
+1. Sign in at github.com, click **New repository**, name it (for example `developer-portfolio`), leave it empty, click **Create**.
+2. In the project folder, run:
+```
+git init
+git add .
+git commit -m "Initial portfolio"
+git branch -M main
+git remote add origin https://github.com/YOUR-USERNAME/developer-portfolio.git
+git push -u origin main
 ```
 
-### 2. Open the Project Folder
+## Deploy
+**GitHub Pages:** repository **Settings > Pages**, set Source to *Deploy from a branch*, choose `main` and `/ (root)`, Save. After a minute the URL appears at the top of that page: `https://YOUR-USERNAME.github.io/developer-portfolio/`.
 
-```bash
-cd developer-portfolio
+**Netlify:** log in at netlify.com, **Add new site > Import an existing project**, pick your GitHub repo. Leave build command empty and publish directory as `/`, then **Deploy**. The live URL is shown on the site dashboard.
+
+**Vercel:** log in at vercel.com, **Add New > Project**, import the repo, set Framework Preset to *Other*, leave build settings empty, **Deploy**. The URL appears after the deploy finishes.
+
+## Update after changes
 ```
-
-### 3. Run the Website
-
-Open `index.html` in your browser.
-
-You can also use the Live Server extension in Visual Studio Code for local development.
-
-## 🖼️ Website Sections
-
-### 🏠 Home
-
-An introduction to my profile, development interests, and project portfolio.
-
-### 👩‍💻 About Me
-
-Information about my interests in software development, full-stack web development, and problem-solving.
-
-### 🛠️ Technical Skills
-
-A showcase of my programming languages, frontend technologies, backend technologies, and development tools.
-
-### 🚀 Projects
-
-A collection of my projects, including their descriptions, technologies, and repository links.
-
-### 🎓 Education
-
-Details about my academic background.
-
-### 📄 Resume
-
-An option to view or download my resume in PDF format.
-
-### 📬 Contact
-
-Contact information and a form for sending messages.
-
-## 📸 Screenshots
-
-Add screenshots of your completed website here.
-
-Example:
-
-```markdown
-![Home Page](assets/screenshots/home.png)
-![Projects Section](assets/screenshots/projects.png)
-![Contact Section](assets/screenshots/contact.png)
+git add .
+git commit -m "Update portfolio"
+git push
 ```
+GitHub Pages, Netlify and Vercel redeploy automatically.
 
-Create the `assets/screenshots/` folder and add the corresponding screenshots before using these image links.
-
-## 🌐 Live Demo
-
-**Live Website:** Add your deployed website URL here.
-
-**GitHub Repository:** Add your GitHub repository URL here.
-
-## 🔧 Customization
-
-You can personalize this portfolio by:
-
-* Updating personal information in `js/config.js`
-* Editing project details in `js/projects.js`
-* Replacing `assets/myphoto.jpg` with your profile photo
-* Adding your resume as `assets/resume.pdf`
-* Updating GitHub and LinkedIn profile links
-* Customizing colors and layouts in `css/style.css`
-
-## 📌 Future Improvements
-
-* Connect the contact form to a backend or email service
-* Add more completed projects
-* Include verified certifications and achievements
-* Improve portfolio accessibility and performance
-
-## 👩‍💻 Author
-
-**Madhumitha**
-
-Information Technology Student
-Aspiring Software Developer | Full-Stack Developer
-
-* GitHub: Add your GitHub profile URL
-* LinkedIn: Add your LinkedIn profile URL
-
-## 📜 License
-
-This project is intended for personal portfolio and educational purposes. Add an appropriate license if you plan to distribute or reuse the source code.
-
----
-
-⭐ If you find this project useful, consider giving the repository a star!
+## Screenshots
+Add your own after deploying:
+- `![Home](screenshots/home.png)` (placeholder)
+- `![Projects](screenshots/projects.png)` (placeholder)
+- `![Light mode](screenshots/light.png)` (placeholder)

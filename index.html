@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Madhumitha | Full-Stack Developer Portfolio</title>
+  <meta name="description" content="Portfolio of Madhumitha, an Information Technology student and aspiring full-stack developer.">
+  <meta name="theme-color" content="#0a1128">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Sora:wght@600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+  <link rel="stylesheet" href="css/style.css">
+  <!-- Apply saved theme before first paint (prevents a flash) and mark JS as available -->
+  <script>
+    document.documentElement.classList.add("js");
+    try { var t = localStorage.getItem("theme"); if (t) document.documentElement.dataset.theme = t; } catch (e) {}
+  </script>
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+
+  <header class="nav">
+    <nav class="container nav-inner" aria-label="Main navigation">
+      <a href="#home" class="logo" data-bind="name">Madhumitha</a>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#education">Education</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+      <div class="nav-actions">
+        <button id="themeToggle" class="icon-btn" type="button" aria-label="Switch to light theme"></button>
+        <button id="menuToggle" class="icon-btn menu-btn" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="navLinks">
+          <i class="fa-solid fa-bars" aria-hidden="true"></i>
+        </button>
+      </div>
+    </nav>
+  </header>
+
+  <main id="main">
+    <!-- HERO -->
+    <section id="home" class="hero">
+      <div class="container hero-grid">
+        <div class="hero-text">
+          <p class="role" data-bind="role"></p>
+          <h1 data-bind="headline"></h1>
+          <p class="lead" data-bind="intro"></p>
+          <div class="btn-row">
+            <a class="btn btn-primary" href="#projects"><i class="fa-solid fa-code" aria-hidden="true"></i> View My Projects</a>
+            <a class="btn btn-outline" id="heroResume" href="#resume"><i class="fa-solid fa-download" aria-hidden="true"></i> Download Resume</a>
+            <a class="btn btn-ghost" href="#contact"><i class="fa-solid fa-envelope" aria-hidden="true"></i> Contact Me</a>
+          </div>
+          <div class="socials">
+            <a class="social" data-link="github" aria-label="GitHub profile"><i class="fa-brands fa-github" aria-hidden="true"></i></a>
+            <a class="social" data-link="linkedin" aria-label="LinkedIn profile"><i class="fa-brands fa-linkedin-in" aria-hidden="true"></i></a>
+          </div>
+        </div>
+        <div class="hero-visual" aria-hidden="false">
+          <div class="code-window">
+            <div class="code-bar"><span></span><span></span><span></span><em id="windowTitle">portfolio.js</em></div>
+            <div class="avatar-box"><img id="profileImg" alt="Profile photo placeholder" width="320" height="320"></div>
+            <pre class="code-lines" id="codeLines"></pre>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about">
+      <div class="container">
+        <div class="sec-head reveal"><h2>About Me</h2><p>A little about what I do and what I am learning.</p></div>
+        <div class="about-grid">
+          <div class="about-text reveal" id="aboutText"></div>
+          <div class="cards" id="aboutCards"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SKILLS -->
+    <section id="skills" class="alt">
+      <div class="container">
+        <div class="sec-head reveal"><h2>Technical Skills</h2><p>Technologies I have learned and use in my projects.</p></div>
+        <div class="skill-grid" id="skillGrid"></div>
+      </div>
+    </section>
+
+    <!-- PROJECTS -->
+    <section id="projects">
+      <div class="container">
+        <div class="sec-head reveal"><h2>Featured Projects</h2><p>Select a card to read more. Projects marked "Concept" are ideas I am planning or still building.</p></div>
+        <div class="project-grid" id="projectGrid"></div>
+      </div>
+    </section>
+
+    <!-- EDUCATION -->
+    <section id="education" class="alt">
+      <div class="container">
+        <div class="sec-head reveal"><h2>Education</h2><p>My academic background.</p></div>
+        <ol class="timeline" id="eduList"></ol>
+      </div>
+    </section>
+
+    <!-- EXPERIENCE -->
+    <section id="experience">
+      <div class="container">
+        <div class="sec-head reveal"><h2>Experience</h2><p>Internship and training work.</p></div>
+        <ol class="timeline" id="expList"></ol>
+      </div>
+    </section>
+
+    <!-- ACHIEVEMENTS (hidden automatically until achievements are added in config.js) -->
+    <section id="achievements" class="alt" hidden>
+      <div class="container">
+        <div class="sec-head reveal"><h2>Achievements and Certifications</h2><p>Verified hackathons, workshops, certificates and internships.</p></div>
+        <div class="cards" id="achList"></div>
+      </div>
+    </section>
+
+    <!-- RESUME -->
+    <section id="resume">
+      <div class="container">
+        <div class="resume-card reveal">
+          <div class="doc-icon" aria-hidden="true"><i class="fa-solid fa-file-lines"></i></div>
+          <div class="resume-body">
+            <h2>Resume</h2>
+            <p>A one-page summary of my education, skills and projects.</p>
+            <div id="resumeAction"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact">
+      <div class="container">
+        <div class="sec-head reveal"><h2>Contact</h2><p>Have an internship, project or hackathon idea? Send me a message.</p></div>
+        <div class="contact-grid">
+          <div class="contact-info reveal">
+            <a class="contact-link" data-link="email"><i class="fa-solid fa-envelope" aria-hidden="true"></i><span data-text="email"></span></a>
+            <a class="contact-link" data-link="github"><i class="fa-brands fa-github" aria-hidden="true"></i><span data-text="github"></span></a>
+            <a class="contact-link" data-link="linkedin"><i class="fa-brands fa-linkedin-in" aria-hidden="true"></i><span data-text="linkedin"></span></a>
+          </div>
+          <form id="contactForm" class="form reveal" novalidate>
+            <div class="field">
+              <label for="name">Name</label>
+              <input id="name" name="name" type="text" autocomplete="name" required aria-describedby="err-name">
+              <p class="error" id="err-name"></p>
+            </div>
+            <div class="field">
+              <label for="email">Email</label>
+              <input id="email" name="email" type="email" autocomplete="email" required aria-describedby="err-email">
+              <p class="error" id="err-email"></p>
+            </div>
+            <div class="field">
+              <label for="subject">Subject</label>
+              <input id="subject" name="subject" type="text" required aria-describedby="err-subject">
+              <p class="error" id="err-subject"></p>
+            </div>
+            <div class="field">
+              <label for="message">Message</label>
+              <textarea id="message" name="message" rows="5" required aria-describedby="err-message"></textarea>
+              <p class="error" id="err-message"></p>
+            </div>
+            <button class="btn btn-primary" type="submit"><i class="fa-solid fa-paper-plane" aria-hidden="true"></i> Send Message</button>
+            <p id="formStatus" class="form-status" role="status" aria-live="polite"></p>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container"><p>&copy; <span id="year"></span> <span data-bind="name"></span>. Built with HTML, CSS and JavaScript.</p></div>
+  </footer>
+
+  <button id="toTop" class="to-top" type="button" aria-label="Back to top"><i class="fa-solid fa-arrow-up" aria-hidden="true"></i></button>
+
+  <!-- Project detail modal -->
+  <dialog id="projectModal" aria-labelledby="modalTitle">
+    <div class="modal-box" id="modalBody"></div>
+  </dialog>
+
+  <script src="js/config.js"></script>
+  <script src="js/projects.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
